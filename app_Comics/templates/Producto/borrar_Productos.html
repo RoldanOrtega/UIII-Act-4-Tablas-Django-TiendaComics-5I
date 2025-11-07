@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h4 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Confirmar Eliminación</h4>
+            </div>
+            <div class="card-body text-center">
+                <div class="alert alert-warning" role="alert">
+                    <h5><i class="fas fa-exclamation-circle"></i> ¡Atención!</h5>
+                    <p class="mb-0">¿Estás seguro de que deseas eliminar este producto?</p>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ producto.nombre }}</h5>
+                        <p class="card-text">
+                            <strong>Autor:</strong> {{ producto.autor }}<br>
+                            <strong>Editorial:</strong> {{ producto.editorial }}<br>
+                            <strong>Precio:</strong> ${{ producto.precio }}<br>
+                            <strong>Stock:</strong> {{ producto.stock }}
+                        </p>
+                    </div>
+                </div>
+                
+                <p class="text-muted"><small>Esta acción no se puede deshacer.</small></p>
+                
+                <form method="POST" action="{% url 'confirmar_borrar_Producto' producto.id %}">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger btn-lg">
+                            <i class="fas fa-trash"></i> Sí, Eliminar Producto
+                        </button>
+                        <a href="{% url 'ver_Productos' %}" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="fas fa-truck-loading"></i> Agregar Nuevo Proveedor</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nombre de la Empresa</label>
+                            <input type="text" class="form-control" name="nombre_Empresa" required placeholder="Ingresa el nombre de la empresa">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nombre del Contacto</label>
+                            <input type="text" class="form-control" name="nombre_Contacto" required placeholder="Nombre de la persona de contacto">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Teléfono de Contacto</label>
+                            <input type="tel" class="form-control" name="telefono_Contacto" required placeholder="Número telefónico">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email de Contacto</label>
+                            <input type="email" class="form-control" name="email_Contacto" required placeholder="correo@empresa.com">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Dirección</label>
+                            <input type="text" class="form-control" name="direccion" required placeholder="Dirección completa">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" name="ciudad" required placeholder="Ciudad">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">País</label>
+                            <input type="text" class="form-control" name="pais" required placeholder="País">
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-success me-md-2">
+                            <i class="fas fa-save"></i> Guardar Proveedor
+                        </button>
+                        <a href="{% url 'ver_Proveedores' %}" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

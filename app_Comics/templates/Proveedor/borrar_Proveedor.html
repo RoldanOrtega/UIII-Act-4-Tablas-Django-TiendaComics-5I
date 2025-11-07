@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h4 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Confirmar Eliminación</h4>
+            </div>
+            <div class="card-body text-center">
+                <div class="alert alert-warning" role="alert">
+                    <h5><i class="fas fa-exclamation-circle"></i> ¡Atención!</h5>
+                    <p class="mb-0">¿Estás seguro de que deseas eliminar este proveedor?</p>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ proveedor.nombre_Empresa }}</h5>
+                        <p class="card-text">
+                            <strong>Contacto:</strong> {{ proveedor.nombre_Contacto }}<br>
+                            <strong>Teléfono:</strong> {{ proveedor.telefono_Contacto }}<br>
+                            <strong>Email:</strong> {{ proveedor.email_Contacto }}<br>
+                            <strong>Ciudad:</strong> {{ proveedor.ciudad }}, {{ proveedor.pais }}
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Importante:</strong> Este proveedor tiene {{ proveedor.productos.count }} producto(s) asociado(s). 
+                    Al eliminar el proveedor, estos productos quedarán sin proveedor asignado.
+                </div>
+                
+                <p class="text-muted"><small>Esta acción no se puede deshacer.</small></p>
+                
+                <form method="POST" action="{% url 'confirmar_borrar_Proveedor' proveedor.id %}">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger btn-lg">
+                            <i class="fas fa-trash"></i> Sí, Eliminar Proveedor
+                        </button>
+                        <a href="{% url 'ver_Proveedores' %}" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

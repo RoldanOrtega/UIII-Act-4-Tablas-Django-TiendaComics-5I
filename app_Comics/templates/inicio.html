@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-primary">Bienvenido al Sistema de Administración de Cómics</h2>
+                <p class="card-text lead">
+                    Gestiona tu tienda de cómics de manera eficiente con nuestro sistema. 
+                    Controla productos, proveedores y clientes en un solo lugar.
+                </p>
+                <hr>
+                <h5>Características principales:</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> Gestión completa de inventario</li>
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> Control de proveedores</li>
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> Administración de clientes</li>
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> Reportes y estadísticas</li>
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> Interfaz moderna y responsive</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                     alt="Cómics" class="img-fluid rounded" style="max-height: 400px; width: 100%; object-fit: cover;">
+                <h4 class="mt-3 text-info">¡Explora el mundo de los cómics!</h4>
+                <p class="text-muted">Gestiona tu colección de manera profesional</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center">
+                <h4 class="card-title">¿Listo para comenzar?</h4>
+                <p class="card-text">Selecciona una opción del menú superior para empezar a gestionar tu tienda</p>
+                <a href="{% url 'agregar_Producto' %}" class="btn btn-primary me-2">
+                    <i class="fas fa-plus-circle"></i> Agregar Primer Producto
+                </a>
+                <a href="{% url 'ver_Productos' %}" class="btn btn-outline-primary">
+                    <i class="fas fa-list"></i> Ver Productos Existentes
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
